@@ -1,0 +1,6 @@
+# Ignore basic node modules, and config.json file keeping the token / prefix
+node_modules
+config.json
+
+# For Mac OS users
+.DS_Store
