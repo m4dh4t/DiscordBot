@@ -25,10 +25,10 @@ client.once('ready', async () => {
         if (client.cache.get('hasRestarted') && client.cache.has('isTextChannel')) {
             if (client.cache.get('isTextChannel')) {
                 const restartNoticeChannel = client.channels.cache.get(client.cache.get('restartNoticeChannelId'));
-                restartNoticeChannel.send('Restarted successfully !');
+                await restartNoticeChannel.send('Restarted successfully !');
             } else {
                 const restartNoticeAuthor = client.users.cache.get(client.cache.get('restartNoticeAuthorId'));
-                restartNoticeAuthor.send('Restarted successfully !');
+                await restartNoticeAuthor.send('Restarted successfully !');
             }
         }
         client.cache.clear();
