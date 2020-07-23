@@ -15,11 +15,11 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.once('ready', async () => {
+client.once('ready', () => {
     console.log('Ready!');
 
     //Check for the enmap database to correctly initialize
-    client.cache.defer.then( () => {
+    client.cache.defer.then( async () => {
         console.log(client.cache.size + ' keys loaded');
         //If the bot has been restarted, send a notice at the right place when ready
         if (client.cache.get('hasRestarted') && client.cache.has('isTextChannel')) {
