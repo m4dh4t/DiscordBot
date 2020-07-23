@@ -48,7 +48,7 @@ client.on('message', message => {
     
     //Check if the user has the rights to execute the command
     if (command.adminOnly && !client.admins.get('adminsList').includes(message.author.id)) {
-        return message.reply('You must be a bot administrator to use this command !');
+        return message.channel.send('You must be a bot administrator to use this command !');
     }
 
     //Check if the command is valid for DMs usage
