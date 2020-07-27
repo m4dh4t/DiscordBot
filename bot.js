@@ -5,7 +5,7 @@ const { prefix, token } = require('./config.json');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const cooldowns = new Discord.Collection();
 const Enmap = require('enmap');
-client.cache = new Enmap({name: 'cache'});
+client.restart = new Enmap({name: 'restart'});
 client.admins = new Enmap({name: 'admins'});
 
 //Build the command collection based on the files in the ./commands folder
@@ -19,19 +19,24 @@ client.once('ready', () => {
     console.log('Ready!');
 
     //Check for the enmap database to correctly initialize
-    client.cache.defer.then( async () => {
-        console.log(client.cache.size + ' keys loaded');
+    client.restart.defer.then( async () => {
+        console.log(client.restart.size + ' keys loaded');
         //If the bot has been restarted, send a notice at the right place when ready
-        if (client.cache.get('hasRestarted') && client.cache.has('isTextChannel')) {
-            if (client.cache.get('isTextChannel')) {
-                const restartNoticeChannel = client.channels.cache.get(client.cache.get('restartNoticeChannelId'));
-                await restartNoticeChannel.send('Restarted successfully !');
-            } else {
-                const restartNoticeAuthor = client.users.cache.get(client.cache.get('restartNoticeAuthorId'));
-                await restartNoticeAuthor.send('Restarted successfully !');
+        if (client.restart.has('restarted')) {
+            switch (client.restart.get('channelType')) {
+                case ('guild'):
+                    const restartNoticeChannel = client.channels.cache.get(client.restart.get('noticeChannelId'));
+                    await restartNoticeChannel.send('Restarted successfully !');
+                    break;
+                case ('dm'):
+                    const restartNoticeAuthor = client.users.cache.get(client.restart.get('noticeAuthorId'));
+                    await restartNoticeAuthor.send('Restarted successfully !');
+                    break;
+                default:
+                    console.log('Restarted in an undefined channel type');
             }
         }
-        client.cache.clear();
+        client.restart.clear();
     });
 });
 

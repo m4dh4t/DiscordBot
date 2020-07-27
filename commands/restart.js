@@ -7,17 +7,17 @@ module.exports = {
         //Sending a message in DMs or in a guild is not done with the same commands
         switch (message.channel.type) {
             case ('text'): //The message was sent in a guild
-                message.client.cache.set('isTextChannel', true);
-                message.client.cache.set('restartNoticeChannelId', message.channel.id); //Store the channel id where the bot was restarted
+                message.client.restart.set('channelType', 'guild');
+                message.client.restart.set('noticeChannelId', message.channel.id); //Store the channel id where the bot was restarted
                 break;
             case ('dm'): //The message was sent in DMs
-                message.client.cache.set('isTextChannel', false);
-                message.client.cache.set('restartNoticeAuthorId', message.author.id); //Store the id of the author that restarted the bot
+                message.client.restart.set('channelType', 'dm');
+                message.client.restart.set('noticeAuthorId', message.author.id); //Store the id of the author that restarted the bot
                 break;
             default:
-                console.log('Unexpected channel type');
+                console.log('Restart command issued in an unexpected channel type');
         }
-        message.client.cache.set('hasRestarted', true);
+        message.client.restart.set('restarted');
         process.exit(); //Kills the process, but the bot is automatically restarted by pm2
 	},
 };
