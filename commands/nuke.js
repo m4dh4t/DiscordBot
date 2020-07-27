@@ -5,7 +5,6 @@ module.exports = {
     aliases: ['💣'],
 	execute(message, args) {
         if(message.channel.id == '730207114399580161'){
-            console.log('debug');
             async function wipe() {
                 var message_size = 100;
                 while (message_size == 100) {
