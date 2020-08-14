@@ -1,35 +1,43 @@
 module.exports = {
 	name: 'bot-admin',
     description: 'Allow the mentionned user to be a bot administrator',
-    usage: '[@UserToAdd]',
+    usage: '[add | remove @User] or [list | l]',
+    args: true,
     adminOnly: true,
 	execute(message, args) {
         const data = [];
-        const viewAdmins = [
-            'view',
-            'v',
-            'list',
-            'l',
-            'show',
-            's'
-        ];
+        const viewAdmins = ['list', 'l'];
 
         if (message.mentions.users.size) {
-            if (!message.client.admins.get('adminsList').includes(message.mentions.users.first().id)){
-                message.client.admins.push('adminsList', message.mentions.users.first().id);
-                message.channel.send(`The user ${message.mentions.users.first()} has been added to the bot admins list.`);
-            } else {
-                message.channel.send(`The user ${message.mentions.users.first()} is already in the bot admins list.`);
+            const user = message.mentions.users.first();
+            const botUsers = message.client.botusers;
+            switch (args[0]) {
+                case ('add'):
+                    if (!botUsers.includes('admins', user.id)){
+                        botUsers.push('admins', user.id);
+                        message.channel.send(`${user} has been added to the bot admins list.`);
+                    } else {
+                        message.channel.send(`${user} is already in the bot admins list.`);
+                    }
+                    break;
+                case ('remove'):
+                    if (botUsers.includes('admins', user.id)){
+                        botUsers.remove('admins', user.id);
+                        message.channel.send(`${user} has been removed from the bot admins list.`);
+                    } else {
+                        message.channel.send(`${user} is not in the bot admins list.`);
+                    }
+                    break;
+                default:
+                    message.channel.send('You did not provide any valid arguments with the username.');
             }
-        } else if (args.length === 0) {
-            message.reply('you did not provide any user to add as a bot admin.');
-        }
-
-        if (viewAdmins.includes(args[0])) {
+        } else if (viewAdmins.includes(args[0])) {
             data.push('**Bot admins:**');
-            message.client.admins.get('adminsList').map( adminId => data.push(message.client.users.cache.get(adminId)));
+            botUsers.get('admins').map( adminId => data.push(message.client.users.cache.get(adminId)));
 
             message.channel.send(data);
+        } else {
+            throw new Error('InvalidArgument');
         }
 	},
 };
