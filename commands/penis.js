@@ -4,7 +4,7 @@ module.exports = {
 	usage: '[@Username]',
     cooldown: 3,
     aliases: ['pp', 'pepou', 'dingdong'],
-    overridingBotPrefix: 'pls',
+    overridenPrefix: 'pls',
 	execute(message, args) {
         const { prefixes } = require('../config.json');
         
