@@ -104,7 +104,7 @@ client.on('message', message => {
     }
 
      // Remove the cooldown in a private chat with the bot
-    if (message.channel.type !== 'text') {
+    if (message.channel.type !== 'dm') {
         // Setups the cooldown and verification before execution
         if (!cooldowns.has(command.name)) {
             cooldowns.set(command.name, new Discord.Collection());
