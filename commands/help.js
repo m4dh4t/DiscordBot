@@ -1,5 +1,3 @@
-const { mainPrefix } = require('../config.json');
-
 module.exports = {
 	name: 'help',
 	description: 'List all commands or give info about a specific command.',
@@ -7,7 +5,9 @@ module.exports = {
 	usage: '[command name]',
 	cooldown: 5,
 	execute(message, args) {
-		const data = [];
+        const { mainPrefix } = require('../config.json');
+
+        const data = [];
         const { commands } = message.client;
 
         if (!args.length) {  
