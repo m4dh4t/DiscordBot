@@ -6,7 +6,7 @@ module.exports = {
     aliases: ['pp', 'pepou', 'dingdong'],
     overridenPrefix: 'pls',
 	execute(message, args) {
-        const { prefixes } = require('../config.json');
+        const { mainPrefix, overridenPrefixes } = require('../config.json');
         
         const taggedUser = message.mentions.users.first();
         const delay = 100;
@@ -18,7 +18,7 @@ module.exports = {
         let replace = false;
         let a = 0;
         
-        if (message.content.startsWith(prefixes[0])) { //*...
+        if (message.content.startsWith(mainPrefix)) { //*...
             if (!message.mentions.users.size) { //*penis
                 if (!args.length) {
                     txt = `${message.author.username}'s penis\n8`;
@@ -75,7 +75,7 @@ module.exports = {
                 .setDescription(txt);
             
             message.channel.send(penisEmbed);
-        } else if (message.content.startsWith(prefixes[1])) { //pls...
+        } else if (message.content.startsWith('pls')) { // Overrides Dank Memer bot command
             if (!message.mentions.users.size) { //pls penis
                 if (message.author.id === '321006216887402496') { //Kento
                     setTimeout(function() {
