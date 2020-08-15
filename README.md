@@ -21,8 +21,8 @@ Dependency: Node.js 12.0 or newer.
  `git clone https://github.com/m4dh4t/DiscordBot.git`
  - Navigate to the DiscordBot folder and install the required node modules
  `sudo npm install discord.js enmap better-sqlite-pool better-sqlite3 eslint`
- - 
+ - Edit the following variables in the config.json file: 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzgyNzQzNDMsLTk0MTMxMjE2Ml19
+eyJoaXN0b3J5IjpbLTM5NTcwNTk4NiwtOTQxMzEyMTYyXX0=
 -->
