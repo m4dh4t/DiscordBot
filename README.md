@@ -15,8 +15,8 @@ There isn't any roadmap yet, we don't even know what we're going to do with that
 
 How to build the bot locally for development from the git repository
 
- 1. List item
+ 1. Clone the repository to your working directory: `git clone `
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxNzE5NzQxNCwtOTQxMzEyMTYyXX0=
+eyJoaXN0b3J5IjpbLTM1NTcxMTY2NiwtOTQxMzEyMTYyXX0=
 -->
