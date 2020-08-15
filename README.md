@@ -21,8 +21,10 @@ Dependency: Node.js 12.0 or newer.
  `git clone https://github.com/m4dh4t/DiscordBot.git`
  - Navigate to the DiscordBot folder and install the required node modules
  `sudo npm install discord.js enmap better-sqlite-pool better-sqlite3 eslint`
- - Edit the following variables in the config.json file: 
+ - Fill in the following variables in the config.json file: `mainPrefix`, `token` and `ownerId`. 
+ - Now, simply start the bot by running `node .` and enjoy !
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NTcwNTk4NiwtOTQxMzEyMTYyXX0=
+eyJoaXN0b3J5IjpbLTE0MTEyMzM0NTksLTM5NTcwNTk4NiwtOT
+QxMzEyMTYyXX0=
 -->
