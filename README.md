@@ -13,4 +13,7 @@ There isn't any roadmap yet, we don't even know what we're going to do with that
 
 ## Build
 
-Instructions to build the bot locally from the git repository will eventually come one day.
+How to use the bot locally 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTk0MTMxMjE2Ml19
+-->
