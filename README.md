@@ -13,10 +13,15 @@ There isn't any roadmap yet, we don't even know what we're going to do with that
 
 ## Build
 
-How to build the bot locally for development from the git repository
+How to build the bot locally for development from the git repository.
 
- 1. Clone the repository to your working directory: `git clone `
+**Dependencies**
+
+
+ - Clone the repository to your working directory: `git clone https://github.com/m4dh4t/DiscordBot.git`
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NTcxMTY2NiwtOTQxMzEyMTYyXX0=
+eyJoaXN0b3J5IjpbOTM4NjQ3ODE2LC05NDEzMTIxNjJdfQ==
 -->
