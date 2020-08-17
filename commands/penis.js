@@ -1,35 +1,35 @@
 module.exports = {
 	name: 'penis',
-    description: 'Gives your penis size (100% accurate).',
-    usage: '[@Username]',
+	description: 'Gives your penis size (100% accurate).',
+	usage: '[@Username]',
 	cooldown: 3,
 	aliases: ['pp', 'pepou', 'dingdong'],
 	execute(message, args) {
 		const { overridenPrefixes } = require('../config.json');
 
 		const taggedUser = message.mentions.users.first();
-		let random = Math.floor(Math.random() * 11); //Nombre de "=" -> entre 0 et [nombre-1]
+		let random = Math.floor(Math.random() * 11); // Nombre de "=" -> entre 0 et [nombre-1]
 		let txt = '';
 		let argsTxt = '';
 		let replace = false;
 		let a = 0;
 
-		if (!message.mentions.users.size) { //*penis
+		if (!message.mentions.users.size) { // *penis
 			if (!args.length) {
 				txt = `${message.author.username}'s penis\n8`;
 
 				switch (message.author.id) {
-				case '219175344199041035': //Micha
+				case '219175344199041035': // Micha
 					random = 30;
 					break;
 
-				case '321006216887402496': //Kento
+				case '321006216887402496': // Kento
 					random = 0;
 					replace = true;
 					break;
 				}
 			}
-			else { //*penis + args
+			else { // *penis + args
 				if (!message.content.startsWith(overridenPrefixes[0])) {
 					const arguments = args.toString().toLowerCase();
 					switch (arguments) {
@@ -48,16 +48,16 @@ module.exports = {
 				}
 			}
 		}
-		else { //*penis @...
+		else { // *penis @...
 			txt = `${taggedUser.username}'s penis\n8`;
 
 			switch (taggedUser.id) {
-			case '219175344199041035': //Micha
+			case '219175344199041035': // Micha
 				random = 30;
 				replace = true;
 				break;
 
-			case '321006216887402496': //Kento
+			case '321006216887402496': // Kento
 				random = 0;
 				replace = true;
 				break;
@@ -65,14 +65,14 @@ module.exports = {
 		}
 
 		if (message.content.startsWith(overridenPrefixes[0]) && replace) {
-			message.channel.awaitMessages(m => m.author.id == '270904126974590976', //bot deletes dank memer's message
+			message.channel.awaitMessages(m => m.author.id == '270904126974590976', // bot deletes dank memer's message
 				{ max: 1, time: 3000 }).then(collected => {
 				collected.first().delete();
 			});
 		}
 
 		if (!message.content.startsWith(overridenPrefixes[0]) && message.author.id != '321006216887402496' || replace) {
-			//txt writing
+			// txt writing
 			while (a < random) {
 				txt += '=';
 				a++;
