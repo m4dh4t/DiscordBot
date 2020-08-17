@@ -4,9 +4,9 @@ module.exports = {
 	usage: '[@Username]',
 	cooldown: 3,
 	aliases: ['pp', 'pepou', 'dingdong'],
-	execute(message, args) {
-		const { overridenPrefixes } = require('../config.json');
+	overridenPrefix: 'pls',
 
+	execute(message, args) {
 		const taggedUser = message.mentions.users.first();
 		let random = Math.floor(Math.random() * 11); // Nombre de "=" -> entre 0 et [nombre-1]
 		let txt = '';
@@ -30,7 +30,7 @@ module.exports = {
 				}
 			}
 			else { // *penis + args
-				if (!message.content.startsWith(overridenPrefixes[0])) {
+				if (!message.content.startsWith('pls')) {
 					const arguments = args.toString().toLowerCase();
 					switch (arguments) {
 					case 'noich':
@@ -64,14 +64,14 @@ module.exports = {
 			}
 		}
 
-		if (message.content.startsWith(overridenPrefixes[0]) && replace) {
+		if (message.content.startsWith('pls') && replace) {
 			message.channel.awaitMessages(m => m.author.id == '270904126974590976', // bot deletes dank memer's message
 				{ max: 1, time: 3000 }).then(collected => {
 				collected.first().delete();
 			});
 		}
 
-		if (!message.content.startsWith(overridenPrefixes[0]) && message.author.id != '321006216887402496' || replace) {
+		if (!message.content.startsWith('pls') && message.author.id != '321006216887402496' || replace) {
 			// txt writing
 			while (a < random) {
 				txt += '=';
