@@ -1,0 +1,6 @@
+{
+	"mainPrefix": "Choose any command prefix for the bot to use",
+	"overridenPrefixes": ["pls"],
+	"token": "The token the bot will use to login",
+	"ownerId": "Place your own user ID here"
+}
