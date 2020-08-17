@@ -57,10 +57,11 @@ client.on('message', message => {
 
     // Checks for multiple possible prefixes, as the bot needs to be able modify answer from other bots
     var prefix;
+    const messageSent = message.content.toString().toLowerCase();
     if (!message.author.bot) {
         if (!message.content.startsWith(mainPrefix)) {
             for (let i = 0; i < overridenPrefixes.length; ++i) {
-                if (message.content.startsWith(overridenPrefixes[i])) {
+                if (messageSent.startsWith(overridenPrefixes[i])) {
                     prefix = overridenPrefixes[i];
                     break;
                 } 
