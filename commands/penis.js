@@ -30,7 +30,7 @@ module.exports = {
 				}
 			}
 			else { //*penis + args
-				if (!message.content.startsWith(overridenPrefixes)) {
+				if (!message.content.startsWith(overridenPrefixes[0])) {
 					const arguments = args.toString().toLowerCase();
 					switch (arguments) {
 					case 'noich':
@@ -64,14 +64,14 @@ module.exports = {
 			}
 		}
 
-		if (message.content.startsWith(overridenPrefixes) && replace) {
+		if (message.content.startsWith(overridenPrefixes[0]) && replace) {
 			message.channel.awaitMessages(m => m.author.id == '270904126974590976', //bot deletes dank memer's message
 				{ max: 1, time: 3000 }).then(collected => {
 				collected.first().delete();
 			});
 		}
 
-		if (!message.content.startsWith(overridenPrefixes) && message.author.id != '321006216887402496' || replace) {
+		if (!message.content.startsWith(overridenPrefixes[0]) && message.author.id != '321006216887402496' || replace) {
 			//txt writing
 			while (a < random) {
 				txt += '=';
