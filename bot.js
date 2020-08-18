@@ -11,7 +11,7 @@ const cooldowns = new Discord.Collection();
 
 // Creates required enmap databases
 client.restart = new Enmap({name: 'restart'});
-client.botusers = new Enmap({name: 'botusers'});
+client.botUsers = new Enmap({name: 'botusers'});
 
 // Builds the command collection based on the files in the ./commands folder
 client.commands = new Discord.Collection();
@@ -45,10 +45,10 @@ client.once('ready', () => {
     });
 
     // Checks for the enmap database to correctly initialize
-    client.botusers.defer.then( () => {
-        console.log(client.botusers.size + ' keys loaded in botusers enmap');
+    client.botUsers.defer.then( () => {
+        console.log(client.botUsers.size + ' keys loaded in botusers enmap');
         // Ensures that the bot admins array load at least the bot owner set in config.json
-        client.botusers.ensure("admins", [ownerId]);
+        client.botUsers.ensure("admins", [ownerId]);
     });
 });
 
@@ -83,7 +83,7 @@ client.on('message', message => {
     if (prefix !== mainPrefix && prefix !== command.overridenPrefix) return;
 
     // Checks if the user has the rights to execute the command
-    if (command.adminOnly && !client.botusers.includes('admins', message.author.id)) {
+    if (command.adminOnly && !client.botUsers.includes('admins', message.author.id)) {
         return message.channel.send('You must be a bot administrator to use this command !');
     }
 
