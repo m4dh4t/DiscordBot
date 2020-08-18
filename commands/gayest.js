@@ -2,7 +2,7 @@ module.exports = {
     name: 'gayest',
     description: 'Picks the gayest person in the given list',
     cooldown: 2,
-    usage: '[args (including @s)]',
+    args: true,
     execute(message, args) {
         const gayest = Math.ceil(Math.random() * args.length) - 1;
 
