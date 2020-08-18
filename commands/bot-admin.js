@@ -5,12 +5,12 @@ module.exports = {
     args: true,
     adminOnly: true,
 	execute(message, args) {
-        const data = [];
+        const botUsers = message.client.botUsers;
         const viewAdmins = ['list', 'l'];
+        const data = [];
 
         if (message.mentions.users.size) {
             const user = message.mentions.users.first();
-            const botUsers = message.client.botusers;
             switch (args[0]) {
                 case ('add'):
                     if (!botUsers.includes('admins', user.id)){
