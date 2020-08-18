@@ -15,7 +15,9 @@ There isn't any roadmap yet, we don't even know what we're going to do with that
 
 How to build the bot locally for development from the git repository.
 
-Dependency: Node.js 12.0 or newer.
+Dependencies : 
+- Node.js 12.0 or newer.
+- Python 3
 
  - Clone the repository to your working directory
  `git clone https://github.com/m4dh4t/DiscordBot.git`
