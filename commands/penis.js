@@ -7,7 +7,9 @@ module.exports = {
 	overridenPrefix: 'pls',
 
 	execute(message, args) {
+		const messageSent = message.content.toString().toLowerCase();
 		const taggedUser = message.mentions.users.first();
+		
 		let random = Math.floor(Math.random() * 11); // Nombre de "=" -> entre 0 et [nombre-1]
 		let txt = '';
 		let argsTxt = '';
@@ -30,7 +32,7 @@ module.exports = {
 				}
 			}
 			else { // *penis + args
-				if (!message.content.startsWith('pls')) {
+				if (!messageSent.startsWith('pls')) {
 					const arguments = args.toString().toLowerCase();
 					switch (arguments) {
 					case 'noich':
@@ -64,14 +66,14 @@ module.exports = {
 			}
 		}
 
-		if (message.content.startsWith('pls') && replace) {
+		if (messageSent.startsWith('pls') && replace) {
 			message.channel.awaitMessages(m => m.author.id == '270904126974590976', // bot deletes dank memer's message
 				{ max: 1, time: 3000 }).then(collected => {
 				collected.first().delete();
 			});
 		}
 
-		if (!message.content.startsWith('pls') && message.author.id != '321006216887402496' || replace) {
+		if (!messageSent.startsWith('pls') && message.author.id != '321006216887402496' || replace) {
 			// txt writing
 			while (a < random) {
 				txt += '=';
