@@ -29,6 +29,10 @@ module.exports = {
                 txt = '( ͡° ͜ʖ ͡°)';
                 break;
 
+            case 'ladarakent':
+                txt = '＿|￣|○';
+                break;
+
             default:
                 txt = 'This command does not accept "' + args + '" as an argument.';
         }
