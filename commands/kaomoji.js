@@ -21,6 +21,14 @@ module.exports = {
                 txt = '┬─┬ ノ( ゜-゜ノ)';
                 break;
 
+            case 'magician':
+                txt = '(∩^o^)⊃━☆゜.*';
+                break;
+
+            case 'lennyface':
+                txt = '( ͡° ͜ʖ ͡°)';
+                break;
+
             default:
                 txt = 'This command does not accept "' + args + '" as an argument.';
         }
