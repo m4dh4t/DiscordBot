@@ -1,14 +1,24 @@
 module.exports = {
     name: 'gayest',
-    description: 'Picks the gayest person in the given list',
+    description: 'Picks the gayest element in the given list',
+    usage: '[A list of elements to test]',
     cooldown: 2,
     args: true,
     execute(message, args) {
-        const gayest = Math.ceil(Math.random() * args.length) - 1;
+        // Construct an array including only the uniques arguments
+        var unique = [];
+        for (let i = 0; i < args.length; ++i) {
+            if (!unique.includes(args[i])) {
+                unique.push(args[i]);
+            }
+        }
 
-        if(args.length)
-            message.channel.send(args[gayest] + ' is the gayest. :rainbow_flag:');
-        else
-            throw new Error('InvalidArgument');
+        const gayest = Math.ceil(Math.random() * unique.length) - 1;
+
+        if (unique.length < 2) {
+            message.channel.send('You only provided one element'); 
+        } else {
+            message.channel.send(unique[gayest] + ' is the gayest. :rainbow_flag:');
+        }
     },
 };
