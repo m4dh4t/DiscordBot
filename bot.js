@@ -131,7 +131,13 @@ client.on('message', message => {
         command.execute(message, args);
     } catch (error) {
         if (error.message === 'InvalidArgument') {
-            message.channel.send(`You did not provide any valid argument ${message.author}.\nUsage: \`${prefix}${command.name} ${command.usage}\``);
+            let reply = `You did not provide any valid arguments, ${message.author}.`;
+
+            if (command.usage) {
+                reply += `\nUsage: \`${prefix}${command.name} ${command.usage}\``;
+            }
+
+            message.channel.send(reply);
         } else {
             console.error(error);
             message.channel.send('There was an error trying to execute that command.');
