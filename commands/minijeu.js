@@ -5,7 +5,7 @@ module.exports = {
     //cooldown: 180,
 	execute(message, args) {
         const randomWords = require('random-words');
-        const timeToResolve = 5;
+        const timeToResolve = 30;
         var correctWord = randomWords();
         var mixedWord = '';
         var compteur = 0;
