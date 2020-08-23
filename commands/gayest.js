@@ -1,7 +1,7 @@
 module.exports = {
     name: 'gayest',
-    description: 'Picks the gayest element in the given list',
-    usage: '[A list of elements to test]',
+    description: 'Picks the gayest thing in the given list.',
+    usage: '[A list of things to test]',
     cooldown: 2,
     args: true,
     execute(message, args) {
@@ -16,7 +16,7 @@ module.exports = {
         const gayest = Math.ceil(Math.random() * unique.length) - 1;
 
         if (unique.length < 2) {
-            message.channel.send('You only provided one element'); 
+            throw new Error('InvalidArgument');
         } else {
             message.channel.send(unique[gayest] + ' is the gayest. :rainbow_flag:');
         }
