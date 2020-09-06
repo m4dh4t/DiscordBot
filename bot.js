@@ -59,21 +59,21 @@ client.on('message', message => {
     console.log(message.content);
 
     // Checks for multiple possible prefixes, as the bot needs to be able modify answer from other bots
-    var prefix;
-    const messageSent = message.content.toString().toLowerCase();
-    if (!message.author.bot) {
-        if (!message.content.startsWith(mainPrefix)) {
-            for (let i = 0; i < overridenPrefixes.length; ++i) {
-                if (messageSent.startsWith(overridenPrefixes[i])) {
-                    prefix = overridenPrefixes[i];
-                    break;
-                } 
-            }
-            if (!prefix) return;
-        } else {
-            prefix = mainPrefix;
-        }
-    } else return;
+    function getPrefix() {
+        const messageSent = message.content.toString().toLowerCase();
+        if (!message.author.bot) {
+            if (!message.content.startsWith(mainPrefix)) {
+                for (let i = 0; i < overridenPrefixes.length; ++i) {
+                    if (messageSent.startsWith(overridenPrefixes[i])) {
+                        return overridenPrefixes[i];
+                    } 
+                }
+                return;
+            } else return mainPrefix;
+        } else return;
+    };
+    const prefix = getPrefix();
+    if (!prefix) return;
 
     // Separates the command name and arguments from the prefix
     const args = message.content.slice(prefix.length).trim().split(/ +/);
