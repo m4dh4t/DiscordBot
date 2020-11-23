@@ -75,6 +75,7 @@ module.exports = {
 			const handicappedEmbed = new Discord.MessageEmbed()
 				.setColor('#' + (Math.random() * 0xFFFFFF << 0).toString(16))
 				.setTitle('retard-o-meter')
+				.setAuthor(message.author.username, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
 				.setDescription(msgToSend + ' :wheelchair:');
 
 			message.channel.send(handicappedEmbed);
