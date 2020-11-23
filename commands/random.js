@@ -16,9 +16,9 @@ module.exports = {
         } else { //*random + args
             var arguments = Number(args);
 
-            if (isNaN(arguments)) {
+            if (isNaN(arguments) || arguments < 1) {
                 randomEmbed.setTitle('ERROR !');
-                randomEmbed.setDescription('The input you tried to submit was not a number !');
+                randomEmbed.setDescription("The input you tried to submit isn't valid !");
                 message.channel.send(randomEmbed);
                 return false;
             }
