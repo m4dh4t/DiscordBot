@@ -3,8 +3,10 @@ module.exports = {
     description: 'Sends a text animation depending on the argument used with the command',
     cooldown: 2,
     args: true,
-    usage: '[shrug / tableflip / unflip]',
+    usage: '[shrug / tableflip / unflip / magician / lennyface / ladarakent]',
     execute(message, args) {
+        message.delete();
+        
         var txt = '';
         const argus = args.toString().toLowerCase();
 
