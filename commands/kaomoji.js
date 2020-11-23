@@ -3,10 +3,11 @@ module.exports = {
     description: 'Sends a text animation depending on the argument used with the command',
     cooldown: 2,
     args: true,
-    usage: '[shrug / tableflip / unflip / magician / lennyface / ladarakent]',
+    aliases: ['kao'],
+    usage: '[shrug / tableflip / unflip / magician / lennyface / ladarakent / xdoubt / boobs]',
     execute(message, args) {
         message.delete();
-        
+
         var txt = '';
         const argus = args.toString().toLowerCase();
 
@@ -33,6 +34,15 @@ module.exports = {
 
             case 'ladarakent':
                 txt = '＿|￣|○>';
+                break;
+
+            case 'xdoubt':
+                txt = '( ͠° ͟ʖ ͡°)';
+                break;
+
+            case 'boobs':
+            case 'boobies':
+                txt = '( • )( • )ԅ(≖‿≖ԅ)';
                 break;
 
             default:
