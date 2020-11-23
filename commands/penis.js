@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Gives your penis size (100% accurate).',
 	usage: '[@Username]',
 	cooldown: 3,
-	aliases: ['pp', 'pepou', 'dingdong'],
+	aliases: ['pp', 'pepou', 'dingdong', 'peepee'],
 	overridenPrefix: 'pls',
 
 	execute(message, args) {
@@ -22,7 +22,7 @@ module.exports = {
 
 				switch (message.author.id) {
 				case '219175344199041035': // Micha
-					random = 30;
+					random = 55;
 					break;
 
 				case '321006216887402496': // Kento
@@ -55,7 +55,7 @@ module.exports = {
 
 			switch (taggedUser.id) {
 			case '219175344199041035': // Micha
-				random = 30;
+				random = 55;
 				replace = true;
 				break;
 
