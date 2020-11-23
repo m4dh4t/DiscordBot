@@ -30,7 +30,7 @@ module.exports = {
                 break;
 
             case 'ladarakent':
-                txt = '＿|￣|○';
+                txt = '＿|￣|○>';
                 break;
 
             default:
