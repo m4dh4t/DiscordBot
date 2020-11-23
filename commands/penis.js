@@ -9,8 +9,9 @@ module.exports = {
 	execute(message, args) {
 		const messageSent = message.content.toString().toLowerCase();
 		const taggedUser = message.mentions.users.first();
+		const maxSize = 15;
 		
-		let random = Math.floor(Math.random() * 11); // Nombre de "=" -> entre 0 et [nombre-1]
+		let random = Math.floor(Math.random() * (maxSize + 1)); // Nombre de "=" -> entre 0 et [nombre-1]
 		let txt = '';
 		let argsTxt = '';
 		let replace = false;
