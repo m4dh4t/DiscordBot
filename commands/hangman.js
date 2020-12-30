@@ -186,7 +186,7 @@ module.exports = {
 			msg = await message.channel.send(gameEmbed);
 
 			//************************************************************************************************************************************************************************************ Collect answer
-			const filterAnswer = m => tPlayersHM.includes(m.author.id) && isLetter(m.content) === true;
+			const filterAnswer = m => tPlayersHM.includes(m.author.id) && isLetter(m.content.toLowerCase()) === true;
 			const collector = message.channel.createMessageCollector(filterAnswer);
 
 			collector.on('collect', m => {
