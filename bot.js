@@ -20,8 +20,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-global.tPlayersTC = [];
-global.tPlayersHM = [];
+global.tPlayersTC  = [];
+global.tPlayersHM  = [];
+global.tPlayersFCC = [];
 
 client.once('ready', () => {
     console.log('Ready!');
