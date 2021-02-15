@@ -1,5 +1,3 @@
-const { overridenPrefix } = require("./penis");
-
 module.exports = {
 	name: 'fcc',
 	description: 'feuille - caillou - ciseaux',
@@ -21,7 +19,6 @@ module.exports = {
         const tPossibleAnswers = ["feuille", "papier", "caillou", "pierre", "ciseau", "ciseaux"];
         var tAnswers = [];
         var nbrDeRounds;
-        var hasTested;
 		var playersList = message.author.username;
 		var playSolo = false;
 		let list;
@@ -177,28 +174,28 @@ module.exports = {
                 var t = laDate.getTime();
                 var dt = Math.floor((t-t0)/1000);
 
-                switch (dt) {
-                    case 5:
-                        if (trois) message.channel.send('3');
-                        trois = false;
-                        break;
+                    switch (dt) {
+                        case 5:
+                            if (trois) message.channel.send('3');
+                            trois = false;
+                            break;
 
-                    case 6:
-                        if (deux) message.channel.send('2');
-                        deux = false;
-                        break;
+                        case 6:
+                            if (deux) message.channel.send('2');
+                            deux = false;
+                            break;
 
-                    case 7:
-                        if (un) message.channel.send('1');
-                        un = false;
-                        break;
-                }
+                        case 7:
+                            if (un) message.channel.send('1');
+                            un = false;
+                            break;
+                    }
 
-                if (dt >= 8) {
-                    message.channel.send("GO !");
-                    clearInterval(chrono);
-                    collect();
-                }
+                    if (dt >= 8) {
+                        message.channel.send("GO !");
+                        clearInterval(chrono);
+                        collect();
+                    }
             }
 
             //************************************************************************************************************************************************************************************ Collect answer
