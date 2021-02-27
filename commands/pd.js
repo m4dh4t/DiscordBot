@@ -37,9 +37,11 @@ module.exports = {
 						random = 0;
 						break;
 
+					/*
 					case '321006216887402496': // Kento
 						random = 200;
 						break;
+					*/
 				}
 			} else { // pls pd + args
 				const arguments = args.toString().toLowerCase();
@@ -67,9 +69,11 @@ module.exports = {
 					random = 0;
 					break;
 
+				/*
 				case '321006216887402496': // Kento
 					random = 200;
 					break;
+				*/
 			}
 		}
 
