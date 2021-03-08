@@ -4,7 +4,7 @@ module.exports = {
     cooldown: 2,
     args: true,
     aliases: ['kao'],
-    usage: '[shrug / tableflip / unflip / magician / lennyface / ladarakent / xdoubt / boobs]',
+    usage: '[shrug / tableflip / unflip / magician / lennyface / ladarakent / xdoubt / boobs, pervers, run, snorlax]',
     execute(message, args) {
         message.delete();
 
@@ -29,10 +29,14 @@ module.exports = {
                 break;
 
             case 'lennyface':
+            case 'lenny':
                 txt = '( ͡° ͜ʖ ͡°)';
                 break;
 
             case 'ladarakent':
+            case 'naomi':
+            case 'naomi-san':
+            case 'naomi san':
                 txt = '＿|￣|○>';
                 break;
 
@@ -42,7 +46,22 @@ module.exports = {
 
             case 'boobs':
             case 'boobies':
+            case 'tits':
+            case 'titties':
                 txt = '( • )( • )ԅ(≖‿≖ԅ)';
+                break;
+
+            case 'pervers':
+            case 'hentai':
+                txt = '( ͡⚆ ͜ʖ ͡⚆)';
+                break;
+
+            case 'run':
+                txt = '┌( ಠ_ಠ)┘';
+                break;
+
+            case 'snorlax':
+                txt = 'Ƶƶ(￣▵—▵￣)';
                 break;
 
             default:
