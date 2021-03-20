@@ -42,8 +42,13 @@ module.exports = {
 						break;
                     
                     case 'this':
-                        random = 100
+                        random = 100;
                         break;
+
+					case 'One Piece':
+					case 'op':
+						random = 200;
+						break;
 				}
 
 				for (let i = 0 ; i < args.length ; ++i) { // Séparation des arguments
