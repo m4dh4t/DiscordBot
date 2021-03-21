@@ -45,7 +45,7 @@ module.exports = {
                         random = 100;
                         break;
 
-					case 'One Piece':
+					case 'OnePiece':
 					case 'op':
 						random = 200;
 						break;
