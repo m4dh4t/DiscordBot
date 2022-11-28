@@ -9,7 +9,7 @@
   "author": "m4dh4t",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "better-sqlite-pool": "^0.3.0",
     "better-sqlite3": "^7.1.0",
     "cheerio": "^1.0.0-rc.3",
